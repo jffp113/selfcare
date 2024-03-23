@@ -1,14 +1,14 @@
-package add
+package delete
 
 import "github.com/urfave/cli/v2"
 
 func Commands() *cli.Command {
 	return &cli.Command{
-		Name:         "add",
+		Name:         "delete",
 		Aliases:      nil,
 		Usage:        "",
 		UsageText:    "",
-		Description:  "Run a resource",
+		Description:  "Delete a resource",
 		ArgsUsage:    "",
 		Category:     "Basic Commands (Beginner)",
 		BashComplete: nil,
@@ -17,7 +17,7 @@ func Commands() *cli.Command {
 		Action:       nil,
 		OnUsageError: nil,
 		Subcommands: cli.Commands{
-			ProjectCommands(),
+			ContextCommands(),
 		},
 	}
 }
