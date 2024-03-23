@@ -8,7 +8,7 @@ func ProjectCommands() *cli.Command {
 		Aliases:     nil,
 		Usage:       "",
 		UsageText:   "",
-		Description: "Register selfcare timeseet",
+		Description: "Add a project to the DB file",
 		ArgsUsage:   "",
 		Category:    "Basic Commands (Beginner)",
 		/*Flags: []cli.Flag{

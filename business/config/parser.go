@@ -22,3 +22,17 @@ func ConfigFromFile(path string) (Config, error) {
 
 	return cfg, nil
 }
+
+func StoreConfig(path string, cfg Config) error {
+	bs, err := yaml.Marshal(cfg)
+	if err != nil {
+		return err
+	}
+
+	err = os.WriteFile(path, bs, os.ModePerm)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
