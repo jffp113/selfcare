@@ -1,0 +1,13 @@
+current_context: "default"
+contexts:
+  default:
+    username: "username"
+    password: "password"
+    timezone: "GMT+0100"
+projects: 
+  projectxxx:
+    client: "5755408cf81dce5c1aa2ed00"
+    package: "659690cd82b3a40100b98612"
+    project: "6596912082b3a40100b98617"
+    service_level: 1
+    option: Billable
