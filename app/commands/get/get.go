@@ -1,14 +1,14 @@
-package register
+package get
 
 import "github.com/urfave/cli/v2"
 
 func Commands() *cli.Command {
 	return &cli.Command{
-		Name:         "register",
+		Name:         "get",
 		Aliases:      nil,
 		Usage:        "",
 		UsageText:    "",
-		Description:  "Run a resource",
+		Description:  "Get a resource",
 		ArgsUsage:    "",
 		Category:     "Basic Commands (Beginner)",
 		BashComplete: nil,
@@ -17,7 +17,7 @@ func Commands() *cli.Command {
 		Action:       nil,
 		OnUsageError: nil,
 		Subcommands: cli.Commands{
-			TimesheetCommands(),
+			ClientCommands(),
 		},
 	}
 }
