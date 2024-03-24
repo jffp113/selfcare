@@ -16,16 +16,20 @@ import (
 type registerOp struct {
 	config    config.Config
 	timesheet config.Timesheet
+	login     Doer
 	client    *http.Client
 	host      string
 }
 
 func NewRegisterOp(cfg config.Config, timesheet config.Timesheet, host string) Doer {
+	client := getClient()
+
 	return &registerOp{
 		config:    cfg,
 		timesheet: timesheet,
 		host:      host,
-		client:    getClient(),
+		client:    client,
+		login:     NewLoginOperation(cfg, client, host),
 	}
 }
 
@@ -35,7 +39,7 @@ func (r *registerOp) Do() error {
 		return fmt.Errorf("context '%s' not present", r.config.Context)
 	}
 
-	if err := r.doLogin(ctx); err != nil {
+	if err := r.login.Do(); err != nil {
 		return err
 	}
 
@@ -66,6 +70,7 @@ func (r *registerOp) Do() error {
 	return nil
 }
 
+/*
 func (r *registerOp) doLogin(ctx config.Context) error {
 	resp, err := r.client.Get(loginUrl(r.host))
 	if err != nil {
@@ -96,7 +101,7 @@ func (r *registerOp) doLogin(ctx config.Context) error {
 	}
 
 	return nil
-}
+}*/
 
 type entry struct {
 	client        string

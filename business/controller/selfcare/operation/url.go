@@ -2,10 +2,16 @@ package operation
 
 import "fmt"
 
-const login = "https://%s/login"
-const signIn = "https://%s/users/signin"
-const timesheet = "https://%s/coworker/timesheet"
-const saveTimesheet = "https://%s/coworker/savetimesheethour"
+const base = "https://%s"
+const login = base + "/login"
+const signIn = base + "/users/signin"
+const timesheet = base + "/coworker/timesheet"
+const saveTimesheet = base + "/coworker/savetimesheethour"
+const getClients = base + "/coworker/getClients?timesheet_user=%s"
+
+func baseUrl(host string) string {
+	return fmt.Sprintf(base, host)
+}
 
 func loginUrl(host string) string {
 	return fmt.Sprintf(login, host)
@@ -21,4 +27,8 @@ func timesheetURL(host string) string {
 
 func saveTimesheetUrl(host string) string {
 	return fmt.Sprintf(saveTimesheet, host)
+}
+
+func getClientsUrl(host, userId string) string {
+	return fmt.Sprintf(getClients, host, userId)
 }

@@ -30,3 +30,9 @@ func (s *Selfcare) RegisterTimesheet(t config.Timesheet) error {
 	op := operation.NewRegisterOp(s.config, t, s.baseUrl)
 	return op.Do()
 }
+
+func (s *Selfcare) GetClients() ([]operation.Client, error) {
+	op := operation.NewClientOp(s.config, s.baseUrl)
+
+	return op.Do()
+}
