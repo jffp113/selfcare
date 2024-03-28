@@ -1,6 +1,6 @@
 module github.com/jffp113/selfcare
 
-go 1.22.0
+go 1.22
 
 require (
 	github.com/antchfx/htmlquery v1.3.0
